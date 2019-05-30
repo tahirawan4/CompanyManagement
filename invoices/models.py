@@ -21,6 +21,7 @@ class Invoice(BaseModel):
     truck = models.ForeignKey(Truck, on_delete=models.CASCADE)
     date_pick_up = models.DateField(null=True, blank=True)
     place_of_pickup = models.CharField(max_length=100)
+    place_of_deliver = models.CharField(max_length=100)
 
     def __str__(self):
         return str(self.id)

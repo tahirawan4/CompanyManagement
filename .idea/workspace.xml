@@ -2,28 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="400e782b-c7c6-4e33-ac17-c7bdd9ef04a3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/templates/buyer_add.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/templates/supplier_add.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/templates/truck_add.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/templates/truck_driver_add.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/products/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/products/templates/item_form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/products/templates/item_packaging.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/products/templates/item_packaging_form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/products/templates/items.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/urls.py" afterPath="$PROJECT_DIR$/Project/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/templates/buyers.html" afterPath="$PROJECT_DIR$/core/templates/buyers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/templates/suppliers.html" afterPath="$PROJECT_DIR$/core/templates/suppliers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/templates/truck_drivers.html" afterPath="$PROJECT_DIR$/core/templates/truck_drivers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/templates/truks.html" afterPath="$PROJECT_DIR$/core/templates/truks.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/urls.py" afterPath="$PROJECT_DIR$/core/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/views.py" afterPath="$PROJECT_DIR$/core/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products/urls.py" afterPath="$PROJECT_DIR$/products/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products/views.py" afterPath="$PROJECT_DIR$/products/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/home.html" afterPath="$PROJECT_DIR$/templates/home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/invoices/models.py" afterPath="$PROJECT_DIR$/invoices/models.py" />
     </list>
     <ignored path="Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,16 +28,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="truck_drivers.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/templates/truck_drivers.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.7916667">
-              <caret line="7" column="76" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="suppliers.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/templates/suppliers.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -120,11 +90,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29577464">
-              <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+            <state vertical-scroll-proportion="-10.625">
+              <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/invoices/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6437995">
+              <caret line="23" column="54" selection-start-line="23" selection-start-column="54" selection-end-line="23" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -180,7 +160,6 @@
         <option value="$PROJECT_DIR$/Project/settings.py" />
         <option value="$PROJECT_DIR$/products/models.py" />
         <option value="$PROJECT_DIR$/core/models.py" />
-        <option value="$PROJECT_DIR$/invoices/models.py" />
         <option value="$PROJECT_DIR$/core/templates/trucs.html" />
         <option value="$PROJECT_DIR$/products/templates/item_form.html" />
         <option value="$PROJECT_DIR$/products/templates/item_packaging_form.html" />
@@ -203,6 +182,7 @@
         <option value="$PROJECT_DIR$/products/urls.py" />
         <option value="$PROJECT_DIR$/products/templates/item_packaging.html" />
         <option value="$PROJECT_DIR$/products/templates/items.html" />
+        <option value="$PROJECT_DIR$/invoices/models.py" />
       </list>
     </option>
   </component>
@@ -318,6 +298,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="invoices" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CompanyManagement" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="invoices" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrations" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -654,7 +652,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3305921" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3305921" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -869,16 +867,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/invoices/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#28#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/invoices/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1089,8 +1077,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29577464">
-          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+        <state vertical-scroll-proportion="-10.625">
+          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/invoices/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6437995">
+          <caret line="23" column="54" selection-start-line="23" selection-start-column="54" selection-end-line="23" selection-end-column="54" />
           <folding />
         </state>
       </provider>
