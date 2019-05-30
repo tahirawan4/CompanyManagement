@@ -1,5 +1,8 @@
-from django.views.generic import ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse
+from django.views.generic import ListView, CreateView
 
+from core.forms import SupplierForm, BuyerForm, TruckForm, TruckDriverForm
 from core.models import Supplier, Buyer, TruckDriver, Truck
 
 
@@ -33,5 +36,41 @@ class TruckDriverListView(ListView):
 class TruckListView(ListView):
     model = Truck
     paginate_by = 100
-    context_object_name = 'trucs'
+    context_object_name = 'trucks'
     template_name = 'truks.html'
+
+
+class SupplierCreateView(LoginRequiredMixin, CreateView):
+    model = Supplier
+    form_class = SupplierForm
+    template_name = 'supplier_add.html'
+
+    def get_success_url(self):
+        return reverse('suppliers')
+
+
+class BuyerCreateView(LoginRequiredMixin, CreateView):
+    model = Buyer
+    form_class = BuyerForm
+    template_name = 'buyer_add.html'
+
+    def get_success_url(self):
+        return reverse('buyers')
+
+
+class TruckCreateView(LoginRequiredMixin, CreateView):
+    model = Truck
+    form_class = TruckForm
+    template_name = 'truck_add.html'
+
+    def get_success_url(self):
+        return reverse('trucks')
+
+
+class TruckDriverCreateView(LoginRequiredMixin, CreateView):
+    model = TruckDriver
+    form_class = TruckDriverForm
+    template_name = 'truck_driver_add.html'
+
+    def get_success_url(self):
+        return reverse('truck-drivers')

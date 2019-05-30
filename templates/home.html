@@ -8,12 +8,12 @@
         Hi {{ user.username }}!
         <p><a href="{% url 'logout' %}">logout</a></p>s
         <p><a href="{% url 'password_reset' %}">reset password</a></p>
-        <p><a href="{% url 'password_reset' %}">Items</a></p>
-        <p><a href="{% url 'password_reset' %}">Items Packaging</a></p>
-        <p><a href="{% url 'password_reset' %}">Truck Drivers</a></p>
-        <p><a href="{% url 'password_reset' %}">Trucks</a></p>
-        <p><a href="{% url 'password_reset' %}">Suppliers</a></p>
-        <p><a href="{% url 'password_reset' %}">Buyers</a></p>
+        <p><a href="{% url 'items' %}">Items</a></p>
+        <p><a href="{% url 'item-packaging' %}">Items Packaging</a></p>
+        <p><a href="{% url 'truck-drivers' %}">Truck Drivers</a></p>
+        <p><a href="{% url 'trucks' %}">Trucks</a></p>
+        <p><a href="{% url 'suppliers' %}">Suppliers</a></p>
+        <p><a href="{% url 'buyers' %}">Buyers</a></p>
     {% else %}
         <p>You are not logged in</p>
         <a href="{% url 'login' %}">Login</a>

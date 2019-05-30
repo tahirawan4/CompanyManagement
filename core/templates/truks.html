@@ -5,6 +5,7 @@
     <title>Trucks</title>
 </head>
 <body>
+<a href="{% url 'truck-add' %}" class="btn btn-primary">Add Truck</a>
 
 <table>
     <thead>
@@ -13,9 +14,9 @@
 
     </thead>
     <tbody>
-    {% for truck in trucs %}
+    {% for truck in trucks %}
         <tr>
-            <td>{{ truck.plate }}</td>
+            <td>{{ truck.plat_number }}</td>
             <td>{{ truck.license }}</td>
         </tr>
     {% endfor %}

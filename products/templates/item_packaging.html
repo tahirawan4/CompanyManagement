@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item Packagings</title>
+</head>
+<body>
+
+<a href="{% url 'packaging-add' %}" class="btn btn-primary">Add Packaging</a>
+<table>
+    <thead>
+    <th>Title</th>
+    </thead>
+    <tbody>
+    {% for item in packagings %}
+        <tr>
+            <td>{{ item.title }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
