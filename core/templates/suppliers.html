@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Suppliers</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <th>Name</th>
+    <th>Company</th>
+    <th>Phone</th>
+    <th>Email</th>
+    </thead>
+    <tbody>
+    {% for supplier in suppliers %}
+        <tr>
+            <td>{{ supplier.name }}</td>
+            <td>{{ supplier.company_name }}</td>
+            <td>{{ supplier.phone }}</td>
+            <td>{{ supplier.email }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

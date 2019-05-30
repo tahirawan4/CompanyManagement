@@ -6,8 +6,14 @@
 {% block content %}
     {% if user.is_authenticated %}
         Hi {{ user.username }}!
-        <p><a href="{% url 'logout' %}">logout</a></p>
+        <p><a href="{% url 'logout' %}">logout</a></p>s
         <p><a href="{% url 'password_reset' %}">reset password</a></p>
+        <p><a href="{% url 'password_reset' %}">Items</a></p>
+        <p><a href="{% url 'password_reset' %}">Items Packaging</a></p>
+        <p><a href="{% url 'password_reset' %}">Truck Drivers</a></p>
+        <p><a href="{% url 'password_reset' %}">Trucks</a></p>
+        <p><a href="{% url 'password_reset' %}">Suppliers</a></p>
+        <p><a href="{% url 'password_reset' %}">Buyers</a></p>
     {% else %}
         <p>You are not logged in</p>
         <a href="{% url 'login' %}">Login</a>

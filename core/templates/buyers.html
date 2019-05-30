@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buyers</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <th>Name</th>
+    <th>Company</th>
+    <th>Phone</th>
+    <th>Email</th>
+    </thead>
+    <tbody>
+    {% for buyer in buyers %}
+        <td>{{ buyer.name }}</td>
+        <td>{{ buyer.company_name }}</td>
+        <td>{{ buyer.phone }}</td>
+        <td>{{ buyer.email }}</td>
+
+    {% endfor %}
+    <tr></tr>
+    </tbody>
+</table>
+
+</body>
+</html>

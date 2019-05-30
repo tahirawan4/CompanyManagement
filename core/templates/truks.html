@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trucks</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <th>Plate</th>
+    <th>License</th>
+
+    </thead>
+    <tbody>
+    {% for truck in trucs %}
+        <tr>
+            <td>{{ truck.plate }}</td>
+            <td>{{ truck.license }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

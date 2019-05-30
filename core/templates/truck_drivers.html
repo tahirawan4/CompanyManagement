@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Truck Drivers</title>
+</head>
+<body>
+<table>
+    <thead>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Phone</th>
+    </thead>
+    <tbody>
+    {% for truck_d in truck_drivers %}
+        <tr>
+            <td>{{ truck_d.first_name }}</td>
+            <td>{{ truck_d.last_name }}</td>
+            <td>{{ truck_d.phone }}</td>
+
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
