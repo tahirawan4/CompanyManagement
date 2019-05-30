@@ -7,6 +7,8 @@ verify_ssl = true
 
 [packages]
 django = "*"
+django-phonenumber-field = "*"
+phonenumberslite = "*"
 
 [requires]
 python_version = "3.7"
