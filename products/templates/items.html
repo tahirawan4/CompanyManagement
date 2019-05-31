@@ -1,26 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Items</title>
-</head>
-<body>
-
-<a href="{% url 'item-add' %}" class="btn btn-primary">Add Item</a>
-
-<table>
-    <thead>
-    <th>Title</th>
-
-
-    </thead>
-    <tbody>
-    {% for item in items %}
-        <tr>
-            <td>{{ item.title }}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-</body>
-</html>
+{% extends 'common-lists.html' %}
+{% block entity-list %}
+    <a href="{% url 'item-add' %}" class="btn btn-primary">Add Item</a>
+    <br><br>
+    <div class="table-responsive table-responsive-data2">
+        <table class="table table-borderless table-data3">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in items %}
+                <tr class="tr-shadow">
+                    <td>{{ item.title }}</td>
+                    <td>
+                        <div class="table-data-feature">
+                            <button class="item" data-toggle="tooltip" data-placement="top"
+                                    title="Send">
+                                <i class="zmdi zmdi-mail-send"></i>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top"
+                                    title="Edit">
+                                <i class="zmdi zmdi-edit"></i>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top"
+                                    title="Delete">
+                                <i class="zmdi zmdi-delete"></i>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top"
+                                    title="More">
+                                <i class="zmdi zmdi-more"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

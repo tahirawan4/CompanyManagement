@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles', 'accounts', 'core', 'phonenumber_field', 'products', 'invoices'
+    'django.contrib.staticfiles', 'accounts', 'core', 'phonenumber_field', 'products', 'invoices','crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -113,6 +113,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/var/www/static/',
+]
+
+MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'

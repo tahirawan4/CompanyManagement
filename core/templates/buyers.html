@@ -1,30 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Buyers</title>
-</head>
-<body>
 
-<a href="{% url 'buyer-add' %}" class="btn btn-primary">Add Buyer</a>
-<table>
-    <thead>
-    <th>Name</th>
-    <th>Company</th>
-    <th>Phone</th>
-    <th>Email</th>
-    </thead>
-    <tbody>
-    {% for buyer in buyers %}
-        <td>{{ buyer.name }}</td>
-        <td>{{ buyer.company_name }}</td>
-        <td>{{ buyer.phone }}</td>
-        <td>{{ buyer.email }}</td>
+{% extends 'common-lists.html' %}
+{% block entity-list %}
+    <br>
+    <a href="{% url 'buyer-add' %}" class="btn btn-primary">Add Truck Driver</a>
+    <br><br>
+    <div class="table-responsive table-responsive-data2">
+        <table class="table table-borderless table-data3">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Phone</th>
+                <th>Email</th>
 
-    {% endfor %}
-    <tr></tr>
-    </tbody>
-</table>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
 
-</body>
-</html>
+            {% for buyer in buyers %}
+                <tr class="tr-shadow">
+                    <td>{{ supplier.name }}</td>
+                    <td>{{ supplier.company_name }}</td>
+                    <td>{{ supplier.phone }}</td>
+                    <td>{{ supplier.email }}</td>
+                    <td>
+                        <div class="table-data-feature">
+                            <button class="item" data-toggle="tooltip" data-placement="top"
+                                    title="Send">
+                                <i class="zmdi zmdi-mail-send"></i>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top"
+                                    title="Edit">
+                                <i class="zmdi zmdi-edit"></i>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top"
+                                    title="Delete">
+                                <i class="zmdi zmdi-delete"></i>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top"
+                                    title="More">
+                                <i class="zmdi zmdi-more"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

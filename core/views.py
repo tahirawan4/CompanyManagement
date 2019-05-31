@@ -1,9 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, TemplateView
 
 from core.forms import SupplierForm, BuyerForm, TruckForm, TruckDriverForm
 from core.models import Supplier, Buyer, TruckDriver, Truck
+from products.models import Item
 
 
 class SupplierListView(ListView):
@@ -43,7 +44,7 @@ class TruckListView(ListView):
 class SupplierCreateView(LoginRequiredMixin, CreateView):
     model = Supplier
     form_class = SupplierForm
-    template_name = 'supplier_add.html'
+    template_name = 'common-add-form.html'
 
     def get_success_url(self):
         return reverse('suppliers')
@@ -52,7 +53,7 @@ class SupplierCreateView(LoginRequiredMixin, CreateView):
 class BuyerCreateView(LoginRequiredMixin, CreateView):
     model = Buyer
     form_class = BuyerForm
-    template_name = 'buyer_add.html'
+    template_name = 'common-add-form.html'
 
     def get_success_url(self):
         return reverse('buyers')
@@ -61,7 +62,7 @@ class BuyerCreateView(LoginRequiredMixin, CreateView):
 class TruckCreateView(LoginRequiredMixin, CreateView):
     model = Truck
     form_class = TruckForm
-    template_name = 'truck_add.html'
+    template_name = 'common-add-form.html'
 
     def get_success_url(self):
         return reverse('trucks')
@@ -70,7 +71,19 @@ class TruckCreateView(LoginRequiredMixin, CreateView):
 class TruckDriverCreateView(LoginRequiredMixin, CreateView):
     model = TruckDriver
     form_class = TruckDriverForm
-    template_name = 'truck_driver_add.html'
+    template_name = 'common-add-form.html'
 
     def get_success_url(self):
         return reverse('truck-drivers')
+
+
+class IndexView(LoginRequiredMixin, TemplateView):
+    template_name = 'home.html'
+
+    def get_context_data(self, **kwargs):
+        kwargs['buyers'] = Buyer.objects.all().count()
+        kwargs['suppliers'] = Supplier.objects.all().count()
+        kwargs['items'] = Item.objects.all().count()
+        return kwargs
+
+

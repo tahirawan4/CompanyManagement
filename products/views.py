@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from django.utils import timezone
-from django.views.generic import CreateView
+from django.views.generic import CreateView, TemplateView
 from django.views.generic.list import ListView
 
 from products.forms import ItemForm, ItemPackagingForm
@@ -34,7 +34,7 @@ class ItemPackagingListView(LoginRequiredMixin, ListView):
 class ItemCreateView(LoginRequiredMixin, CreateView):
     model = Item
     form_class = ItemForm
-    template_name = 'item_form.html'
+    template_name = 'common-add-form.html'
 
     def get_success_url(self):
         return reverse('items')
@@ -43,7 +43,7 @@ class ItemCreateView(LoginRequiredMixin, CreateView):
 class ItemPackagingCreateView(LoginRequiredMixin, CreateView):
     model = ItemPackaging
     form_class = ItemPackagingForm
-    template_name = 'item_packaging_form.html'
+    template_name = 'common-add-form.html'
 
     def get_success_url(self):
         return reverse('item-packaging')

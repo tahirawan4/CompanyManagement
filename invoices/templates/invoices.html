@@ -1,0 +1,44 @@
+{% extends 'common-lists.html' %}
+{% block entity-list %}
+    <a href="{% url 'invoice-add' %}" class="btn btn-primary">Add Invoice</a>
+    <br><br>
+    <div class="table-responsive table-responsive-data2">
+        <table class="table table-borderless table-data3">
+            <thead>
+            <tr>
+                <th>License</th>
+                <th>Plate Number</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for truck in trucks %}
+                <tr class="tr-shadow">
+                    <td>{{ truck.plat_number }}</td>
+                    <td>{{ truck.license }}</td>
+                    <td>
+                        <div class="table-data-feature">
+                            <button class="item" data-toggle="tooltip" data-placement="top"
+                                    title="Send">
+                                <i class="zmdi zmdi-mail-send"></i>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top"
+                                    title="Edit">
+                                <i class="zmdi zmdi-edit"></i>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top"
+                                    title="Delete">
+                                <i class="zmdi zmdi-delete"></i>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top"
+                                    title="More">
+                                <i class="zmdi zmdi-more"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
