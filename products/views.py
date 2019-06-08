@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils import timezone
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import CreateView, TemplateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 
 from products.forms import ItemForm, ItemPackagingForm
@@ -48,8 +48,32 @@ class ItemPackagingCreateView(LoginRequiredMixin, CreateView):
     def get_success_url(self):
         return reverse('item-packaging')
 
-        # def form_valid(self, form):
-        #     post = TopicPosts.objects.filter(slug=self.kwargs.get('slug')).first()
-        #     form.instance.topic_post_id = post.id
-        #     form.instance.user = self.request.user
-        #     return super().form_valid(form)
+
+class ItemPackagingUpdateView(LoginRequiredMixin, UpdateView):
+    model = ItemPackaging
+    form_class = ItemPackagingForm
+    template_name = 'common-add-form.html'
+
+    def get_success_url(self):
+        return reverse('item-packaging')
+
+
+class ItemUpdateView(LoginRequiredMixin, UpdateView):
+    model = Item
+    form_class = ItemForm
+    template_name = 'common-add-form.html'
+
+    def get_success_url(self):
+        return reverse('items')
+
+
+class ItemDeleteView(LoginRequiredMixin, DeleteView):
+    model = Item
+    template_name = 'confirm_delete.html'
+    success_url = reverse_lazy('items')
+
+
+class ItemPackagingDeleteView(LoginRequiredMixin, DeleteView):
+    model = ItemPackaging
+    template_name = 'confirm_delete.html'
+    success_url = reverse_lazy('item-packaging')

@@ -1,8 +1,8 @@
-
 {% extends 'common-lists.html' %}
 {% block entity-list %}
     <br>
-    <a href="{% url 'buyer-add' %}" class="btn btn-primary">Add Truck Driver</a>
+    <a href="{% url 'buyer-add' %}" class="au-btn au-btn-icon au-btn--green au-btn--small"><i
+            class="zmdi zmdi-plus"></i>Add Buyer</a>
     <br><br>
     <div class="table-responsive table-responsive-data2">
         <table class="table table-borderless table-data3">
@@ -20,28 +20,21 @@
 
             {% for buyer in buyers %}
                 <tr class="tr-shadow">
-                    <td>{{ supplier.name }}</td>
-                    <td>{{ supplier.company_name }}</td>
-                    <td>{{ supplier.phone }}</td>
-                    <td>{{ supplier.email }}</td>
+                    <td>{{ buyer.name }}</td>
+                    <td>{{ buyer.company_name }}</td>
+                    <td>{{ buyer.phone }}</td>
+                    <td>{{ buyer.email }}</td>
                     <td>
                         <div class="table-data-feature">
-                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                    title="Send">
-                                <i class="zmdi zmdi-mail-send"></i>
-                            </button>
-                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                    title="Edit">
+                            <a href="{% url 'buyer-update' pk=buyer.id %}" class="item" data-toggle="tooltip" data-placement="top"
+                               title="Edit">
                                 <i class="zmdi zmdi-edit"></i>
-                            </button>
-                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                    title="Delete">
+                            </a>
+                            <a href="{% url 'buyer-delete' pk=buyer.id %}" class="item" data-toggle="tooltip" data-placement="top"
+                               title="Delete">
                                 <i class="zmdi zmdi-delete"></i>
-                            </button>
-                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                    title="More">
-                                <i class="zmdi zmdi-more"></i>
-                            </button>
+                            </a>
+
                         </div>
                     </td>
                 </tr>

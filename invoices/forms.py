@@ -6,7 +6,7 @@ from invoices.models import Invoice
 class InvoiceForm(ModelForm):
     class Meta:
         model = Invoice
-        fields = '__all__'
+        exclude = ('is_active',)
 
     def __init__(self, *args, **kwargs):
         super(InvoiceForm, self).__init__(*args, **kwargs)

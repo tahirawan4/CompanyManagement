@@ -1,0 +1,10 @@
+
+
+
+{% extends 'common-lists.html' %}
+{% block entity-list %}
+    <form method="post">{% csrf_token %}
+        <p>Are you sure you want to delete "{{ object }}"?</p>
+        <button class="btn btn-danger" type="submit" value="Confirm">Confirm</button>
+    </form>
+{% endblock %}
