@@ -1,0 +1,39 @@
+[2019-06-08 23:09:53 +0000] [5236] [INFO] Starting gunicorn 19.9.0
+[2019-06-08 23:09:53 +0000] [5236] [INFO] Listening at: unix:/home/django/gunicorn.socket (5236)
+[2019-06-08 23:09:53 +0000] [5236] [INFO] Using worker: gevent
+[2019-06-08 23:09:53 +0000] [5239] [INFO] Booting worker with pid: 5239
+[2019-06-08 23:09:53 +0000] [5240] [INFO] Booting worker with pid: 5240
+[2019-06-08 23:09:53 +0000] [5241] [INFO] Booting worker with pid: 5241
+[2019-06-08 23:10:28 +0000] [5236] [INFO] Handling signal: int
+[2019-06-08 23:10:28 +0000] [5239] [INFO] Worker exiting (pid: 5239)
+[2019-06-08 23:10:28 +0000] [5240] [INFO] Worker exiting (pid: 5240)
+[2019-06-08 23:10:28 +0000] [5241] [INFO] Worker exiting (pid: 5241)
+[2019-06-08 23:10:29 +0000] [5236] [INFO] Shutting down: Master
+[2019-06-08 23:11:18 +0000] [5360] [INFO] Starting gunicorn 19.9.0
+[2019-06-08 23:11:18 +0000] [5360] [INFO] Listening at: unix:/home/django/gunicorn.socket (5360)
+[2019-06-08 23:11:18 +0000] [5360] [INFO] Using worker: gevent
+[2019-06-08 23:11:18 +0000] [5363] [INFO] Booting worker with pid: 5363
+[2019-06-08 23:11:18 +0000] [5364] [INFO] Booting worker with pid: 5364
+[2019-06-08 23:11:18 +0000] [5365] [INFO] Booting worker with pid: 5365
+[2019-06-08 23:11:58 +0000] [5360] [INFO] Handling signal: int
+[2019-06-08 23:11:58 +0000] [5365] [INFO] Worker exiting (pid: 5365)
+[2019-06-08 23:11:58 +0000] [5363] [INFO] Worker exiting (pid: 5363)
+[2019-06-08 23:11:58 +0000] [5364] [INFO] Worker exiting (pid: 5364)
+[2019-06-08 23:11:58 +0000] [5360] [INFO] Shutting down: Master
+[2019-06-08 23:12:23 +0000] [5481] [INFO] Starting gunicorn 19.9.0
+[2019-06-08 23:12:23 +0000] [5481] [INFO] Listening at: unix:/home/django/gunicorn.socket1 (5481)
+[2019-06-08 23:12:23 +0000] [5481] [INFO] Using worker: gevent
+[2019-06-08 23:12:23 +0000] [5484] [INFO] Booting worker with pid: 5484
+[2019-06-08 23:12:23 +0000] [5485] [INFO] Booting worker with pid: 5485
+[2019-06-08 23:12:23 +0000] [5486] [INFO] Booting worker with pid: 5486
+[2019-06-08 23:13:51 +0000] [5481] [INFO] Handling signal: int
+[2019-06-08 23:13:51 +0000] [5486] [INFO] Worker exiting (pid: 5486)
+[2019-06-08 23:13:51 +0000] [5484] [INFO] Worker exiting (pid: 5484)
+[2019-06-08 23:13:51 +0000] [5485] [INFO] Worker exiting (pid: 5485)
+[2019-06-08 23:13:52 +0000] [5481] [INFO] Shutting down: Master
+[2019-06-08 23:14:58 +0000] [5586] [INFO] Starting gunicorn 19.9.0
+[2019-06-08 23:14:58 +0000] [5586] [INFO] Listening at: unix:/home/django/gunicorn.socket1 (5586)
+[2019-06-08 23:14:58 +0000] [5586] [INFO] Using worker: gevent
+[2019-06-08 23:14:58 +0000] [5589] [INFO] Booting worker with pid: 5589
+[2019-06-08 23:14:58 +0000] [5590] [INFO] Booting worker with pid: 5590
+[2019-06-08 23:14:58 +0000] [5591] [INFO] Booting worker with pid: 5591

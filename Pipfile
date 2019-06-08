@@ -10,6 +10,7 @@ django = "*"
 django-phonenumber-field = "*"
 phonenumberslite = "*"
 django-crispy-forms = "*"
+gevent = "*"
 
 [requires]
 python_version = "3.7"
