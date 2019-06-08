@@ -35,7 +35,7 @@ class Truck(BaseModel):
     plat_number = models.CharField(max_length=100)
     license = models.CharField(max_length=200, null=True, blank=True)
 
-    def __str(self):
+    def __str__(self):
         return self.plat_number
 
 
