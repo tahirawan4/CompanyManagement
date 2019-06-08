@@ -4,6 +4,7 @@ from django.views.generic import ListView, CreateView, TemplateView, UpdateView,
 
 from core.forms import SupplierForm, BuyerForm, TruckForm, TruckDriverForm
 from core.models import Supplier, Buyer, TruckDriver, Truck
+from invoices.models import Invoice
 from products.models import Item
 
 
@@ -144,4 +145,5 @@ class IndexView(LoginRequiredMixin, TemplateView):
         kwargs['buyers'] = Buyer.objects.all().count()
         kwargs['suppliers'] = Supplier.objects.all().count()
         kwargs['items'] = Item.objects.all().count()
+        kwargs['invoices'] = Invoice.objects.all().count()
         return kwargs
