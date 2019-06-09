@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <br>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <strong>Invoice</strong>
+            </div>
+            <div class="card-body card-block">
+                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                    <div class="row form-group">
+                        <div class="col col-md-2">
+                            <label for="select" class=" form-control-label">Buyer</label>
+                        </div>
+                        <div class="col-12 col-md-10">
+                            <select name="select" id="select" class="form-control" required>
+                                <option value="0">Please select</option>
+                                {% for buyer in buyers %}
+                                    <option value="{{ buyer.id }}">{{ buyer.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col col-md-2">
+                            <label for="select" class=" form-control-label">Supplier</label>
+                        </div>
+                        <div class="col-12 col-md-10">
+                            <select name="select" id="select" class="form-control">
+                                <option value="0">Please select</option>
+                                {% for supplier in suppliers %}
+                                    <option value="{{ supplier.id }}">{{ supplier.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col col-md-2">
+                            <label for="select" class=" form-control-label">Truck Driver</label>
+                        </div>
+                        <div class="col-12 col-md-10">
+                            <select name="select" id="select" class="form-control">
+                                <option value="0">Please select</option>
+                                {% for truck_d in truck_drivers %}
+                                    <option value="{{ truck_d.id }}">{{ truck_d.first_name }} {{ truck_d.last_name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="row form-group">
+                        <div class="col col-md-2">
+                            <label for="select" class=" form-control-label">Truck</label>
+                        </div>
+                        <div class="col-12 col-md-10">
+                            <select name="select" id="select" class="form-control">
+                                <option value="0">Please select</option>
+                                {% for truck in trucks %}
+                                    <option value="{{ truck.id }}">{{ truck.plat_number }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="row form-group">
+                        <div class="col col-md-2">
+                            <label for="text-input" class=" form-control-label">Place Of PickUp</label>
+                        </div>
+                        <div class="col-12 col-md-10">
+                            <input type="text" id="text-input" name="text-input" placeholder="Text"
+                                   class="form-control" required>
+                            <small class="form-text text-muted">Please enter pick up location.</small>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col col-md-2">
+                            <label for="text-input" class=" form-control-label">Place Of Delivery</label>
+                        </div>
+                        <div class="col-12 col-md-10">
+                            <input type="text" id="text-input" name="text-input" placeholder="Text"
+                                   class="form-control" required>
+                            <small class="form-text text-muted">Please enter delivery location.</small>
+                        </div>
+                    </div>
+
+
+                    <div class="row form-group">
+                        <div class="col col-md-2">
+                            <label for="text-input" class=" form-control-label">Date Pick Up</label>
+                        </div>
+                        <div class="col-12 col-md-10">
+                            <input type="date" id="text-input" name="text-input" placeholder="Text"
+                                   class="form-control" required>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row form-group">
+                        <div class="col">
+                            <label for="text-input" class=" form-control-label">Add items</label>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-4">
+                                    <select name="select" id="select" class="form-control">
+                                        <option value="0">Please Select Item</option>
+                                        {% for item in items %}
+                                            <option value="{{ item.id }}">{{ item.title }}</option>
+                                        {% endfor %}
+                                    </select>
+
+                                </div>
+                                <div class="col-4">
+                                    <select name="select" id="select" class="form-control">
+                                        <option value="0">Please Select Packaging</option>
+                                        {% for package in packagings %}
+                                            <option value="{{ package.id }}">{{ package.title }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-2">
+                                    <input type="text" id="text-input" name="text-input"
+                                           placeholder="Quantity"
+                                           class="form-control" required>
+
+                                </div>
+                                <div class="col-2">
+                                    <input type="text" id="text-input" name="text-input"
+                                           placeholder="Quantity"
+                                           class="form-control" required>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary btn-sm">
+                    <i class="fa fa-dot-circle-o"></i> Submit
+                </button>
+                <button type="reset" class="btn btn-danger btn-sm">
+                    <i class="fa fa-ban"></i> Reset
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
