@@ -9,14 +9,14 @@
             </div>
             <div class="card-body card-block">
                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                {% csrf_token %}
 
                     <div class="row form-group">
                         <div class="col col-md-2">
                             <label for="select" class=" form-control-label">Buyer</label>
                         </div>
                         <div class="col-12 col-md-10">
-                            <select name="select" id="select" class="form-control" required>
-                                <option value="0">Please select</option>
+                            <select name="buyer" id="select" class="form-control" required>
                                 {% for buyer in buyers %}
                                     <option value="{{ buyer.id }}">{{ buyer.name }}</option>
                                 {% endfor %}
@@ -29,8 +29,7 @@
                             <label for="select" class=" form-control-label">Supplier</label>
                         </div>
                         <div class="col-12 col-md-10">
-                            <select name="select" id="select" class="form-control">
-                                <option value="0">Please select</option>
+                            <select name="supplier" id="select" class="form-control">
                                 {% for supplier in suppliers %}
                                     <option value="{{ supplier.id }}">{{ supplier.name }}</option>
                                 {% endfor %}
@@ -43,8 +42,7 @@
                             <label for="select" class=" form-control-label">Truck Driver</label>
                         </div>
                         <div class="col-12 col-md-10">
-                            <select name="select" id="select" class="form-control">
-                                <option value="0">Please select</option>
+                            <select name="truck_driver" id="select" class="form-control">
                                 {% for truck_d in truck_drivers %}
                                     <option value="{{ truck_d.id }}">{{ truck_d.first_name }} {{ truck_d.last_name }}</option>
                                 {% endfor %}
@@ -58,8 +56,7 @@
                             <label for="select" class=" form-control-label">Truck</label>
                         </div>
                         <div class="col-12 col-md-10">
-                            <select name="select" id="select" class="form-control">
-                                <option value="0">Please select</option>
+                            <select name="truck" id="select" class="form-control">
                                 {% for truck in trucks %}
                                     <option value="{{ truck.id }}">{{ truck.plat_number }}</option>
                                 {% endfor %}
@@ -73,7 +70,7 @@
                             <label for="text-input" class=" form-control-label">Place Of PickUp</label>
                         </div>
                         <div class="col-12 col-md-10">
-                            <input type="text" id="text-input" name="text-input" placeholder="Text"
+                            <input type="text" id="text-input" name="pickup_place" placeholder="Text"
                                    class="form-control" required>
                             <small class="form-text text-muted">Please enter pick up location.</small>
                         </div>
@@ -84,7 +81,7 @@
                             <label for="text-input" class=" form-control-label">Place Of Delivery</label>
                         </div>
                         <div class="col-12 col-md-10">
-                            <input type="text" id="text-input" name="text-input" placeholder="Text"
+                            <input type="text" id="text-input" name="delivery_location" placeholder="Text"
                                    class="form-control" required>
                             <small class="form-text text-muted">Please enter delivery location.</small>
                         </div>
@@ -96,7 +93,7 @@
                             <label for="text-input" class=" form-control-label">Date Pick Up</label>
                         </div>
                         <div class="col-12 col-md-10">
-                            <input type="date" id="text-input" name="text-input" placeholder="Text"
+                            <input type="date" id="text-input" name="date_pickup" placeholder="Text"
                                    class="form-control" required>
 
                         </div>
@@ -108,9 +105,12 @@
                             <label for="text-input" class=" form-control-label">Add items</label>
                         </div>
                         <div class="col-12">
+                        <button type="button" class="add_field_button btn btn-success">Add More Items</button>
+                        <br>
+                        <br>
                             <div class="row">
                                 <div class="col-4">
-                                    <select name="select" id="select" class="form-control">
+                                    <select name="item[]" id="select" class="form-control" required>
                                         <option value="0">Please Select Item</option>
                                         {% for item in items %}
                                             <option value="{{ item.id }}">{{ item.title }}</option>
@@ -119,7 +119,7 @@
 
                                 </div>
                                 <div class="col-4">
-                                    <select name="select" id="select" class="form-control">
+                                    <select name="itempack[]" id="select" class="form-control" required>
                                         <option value="0">Please Select Packaging</option>
                                         {% for package in packagings %}
                                             <option value="{{ package.id }}">{{ package.title }}</option>
@@ -127,25 +127,26 @@
                                     </select>
                                 </div>
                                 <div class="col-2">
-                                    <input type="text" id="text-input" name="text-input"
+                                    <input type="text" id="text-input" name="quantity[]"
                                            placeholder="Quantity"
                                            class="form-control" required>
 
                                 </div>
                                 <div class="col-2">
-                                    <input type="text" id="text-input" name="text-input"
-                                           placeholder="Quantity"
-                                           class="form-control" required>
+
+                                </div>
+
+                            </div>
+                        <br>
+                            <div class="row">
+                                <div class="col-12 input_fields_wrap">
 
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
-                </form>
-            </div>
-            <div class="card-footer">
+
+                <div class="card-footer">
                 <button type="submit" class="btn btn-primary btn-sm">
                     <i class="fa fa-dot-circle-o"></i> Submit
                 </button>
@@ -153,9 +154,62 @@
                     <i class="fa fa-ban"></i> Reset
                 </button>
             </div>
+                </form>
+            </div>
+
         </div>
     </div>
 
 
+
+
+
+
+
+{% endblock %}
+
+{% block javascript %}
+     <script>
+        $(document).ready(function () {
+            var max_fields = 10; //maximum input boxes allowed
+            var wrapper = $(".input_fields_wrap"); //Fields wrapper
+            var add_button = $(".add_field_button"); //Add button ID
+
+            var x = 1; //initlal text box count
+            $(add_button).click(function (e) { //on add input button click
+                e.preventDefault();
+                if (x < max_fields) { //max input box allowed
+                    x++; //text box increment
+                    $(wrapper).append('<div class="row">\
+                                <div class="col-4">\
+                                    <select name="item[]" id="select" class="form-control">\
+                                        <option value="0">Please Select Item</option>\
+                                        {% for item in items %} <option value="{{ item.id }}">{{ item.title }}</option>{% endfor %}\
+                                    </select>\
+                                </div>\
+                                <div class="col-4">\
+                                    <select name="itempack[]" id="select" class="form-control">\
+                                        <option value="0">Please Select Packaging</option>\
+                                        {% for package in packagings %} <option value="{{ package.id }}">{{ package.title }}</option>{% endfor %}\
+                                    </select>\
+                                </div>\
+                                <div class="col-2">\
+                                    <input type="text" id="text-input" name="quantity[]"\
+                                           placeholder="Quantity"\
+                                           class="form-control" required>\
+                                </div>\
+                                <div class="col-2">\
+                                    <button id="add-button" class="remove_field btn btn-danger">Remove</button>\
+                                </div>\
+                            </div><br>'); //add input box
+                }
+            });
+
+            $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
+                e.preventDefault();
+                $(this).parent('div').parent('div').remove();
+                x--;
+            })
+        });    </script>
 {% endblock %}
 
