@@ -6,6 +6,6 @@ from invoices import views
 
 urlpatterns = [
     path('invoices/', views.InvoiceListView.as_view(), name='invoices'),
-
     path('invoice/add/', views.InvoiceCreateView.as_view(), name='invoice-add'),
-    ]
+    path('invoice/<int:pk>/delete/', views.InvoiceDeleteView.as_view(), name='invoice-delete'),
+]

@@ -1,47 +1,93 @@
 {% extends 'common-lists.html' %}
-{% block entity-list %}
-    <a href="{% url 'invoice-add' %}" class="btn btn-success">Add Invoice</a>
-    <br><br>
-    <div class="table-responsive table-responsive-data2">
-        <table class="table table-borderless table-data3">
-            <thead>
-            <tr>
-                <th>Supplier</th>
-                <th>Buyer</th>
-                <th>Truck Driver</th>
-                <th>Truck</th>
-                <th>Pick Up location</th>
-                <th>Delivery location</th>
-                <th>Delivery Date</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for invoice in invoices %}
-                <tr class="tr-shadow">
-                    <td>{{ invoice.supplier }}</td>
-                    <td>{{ invoice.buyer }}</td>
-                    <td>{{ invoice.truck_driver }}</td>
-                    <td>{{ invoice.truck }}</td>
-                    <td>{{ invoice.place_of_pickup }}</td>
-                    <td>{{ invoice.place_of_deliver }}</td>
-                    <td>{{ invoice.date_pick_up }}</td>
-                    <td>
-                        <div class="table-data-feature">
-                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                    title="Edit">
-                                <i class="zmdi zmdi-edit"></i>
-                            </button>
-                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                    title="Delete">
-                                <i class="zmdi zmdi-delete"></i>
-                            </button>
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="container">
+                    <div class="row">
+                        {#                        <div class="col-2"></div>#}
+                        <div class="col-12">
+                            <br>
+                            <a href="{% url 'invoice-add' %}" class="btn btn-success">Add Invoice</a>
+                            <br><br>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <form method="get">
+                                        <span>Select Year:</span>
+                                    {{ selected_year }}
+                                        <select class="form-control" name="year" onchange="this.form.submit()">
+                                            {% for year in years_list %}
+                                                <option value="{{ year }}"
+                                                        {% if year == selected_year %}selected{% endif %}>{{ year }}</option>
+                                            {% endfor %}
+                                        </select>
+
+                                    </form>
+                                </div>
+                                <div class="col-8"></div>
+                            </div>
+                            <br>
+                            <div class="table-responsive table-responsive-data2">
+                                <table class="table table-borderless table-data3">
+                                    <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Supplier</th>
+                                        <th>Buyer</th>
+                                        <th>Truck Driver</th>
+                                        <th>Truck</th>
+                                        <th>Pick Up location</th>
+                                        <th>Delivery location</th>
+                                        <th>Delivery Date</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for invoice in invoices %}
+                                        <tr class="tr-shadow">
+                                            <td>{{ invoice.id }}-{{ invoice.created_at|date:'Y' }}</td>
+                                            <td>{{ invoice.supplier }}</td>
+                                            <td>{{ invoice.buyer }}</td>
+                                            <td>{{ invoice.truck_driver }}</td>
+                                            <td>{{ invoice.truck }}</td>
+                                            <td>{{ invoice.place_of_pickup }}</td>
+                                            <td>{{ invoice.place_of_deliver }}</td>
+                                            <td>{{ invoice.date_pick_up }}</td>
+                                            <td>
+                                                <div class="table-data-feature">
+                                                    {#                                                    <button class="item" data-toggle="tooltip" data-placement="top"#}
+                                                    {#                                                            title="Edit">#}
+                                                    {#                                                        <i class="zmdi zmdi-edit"></i>#}
+                                                    {#                                                    </button>#}
+                                                    <a href="{% url 'invoice-delete' pk=invoice.pk %}" class="item"
+                                                       data-toggle="tooltip" data-placement="top"
+                                                       title="Delete">
+                                                        <i class="zmdi zmdi-delete"></i>
+                                                    </a>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
 
                         </div>
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                        {#                        <div class="col-2"></div>#}
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
+
 {% endblock %}
+
+
+
+
+

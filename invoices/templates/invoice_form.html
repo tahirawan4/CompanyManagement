@@ -17,6 +17,7 @@
                         </div>
                         <div class="col-12 col-md-10">
                             <select name="buyer" id="select" class="form-control" required>
+                                <option>Choose buyer</option>
                                 {% for buyer in buyers %}
                                     <option value="{{ buyer.id }}">{{ buyer.name }}</option>
                                 {% endfor %}
@@ -30,6 +31,7 @@
                         </div>
                         <div class="col-12 col-md-10">
                             <select name="supplier" id="select" class="form-control">
+                            <option>Choose Supplier</option>
                                 {% for supplier in suppliers %}
                                     <option value="{{ supplier.id }}">{{ supplier.name }}</option>
                                 {% endfor %}
@@ -43,6 +45,7 @@
                         </div>
                         <div class="col-12 col-md-10">
                             <select name="truck_driver" id="select" class="form-control">
+                            <option>Choose Truck Driver</option>
                                 {% for truck_d in truck_drivers %}
                                     <option value="{{ truck_d.id }}">{{ truck_d.first_name }} {{ truck_d.last_name }}</option>
                                 {% endfor %}
@@ -56,6 +59,7 @@
                             <label for="select" class=" form-control-label">Truck</label>
                         </div>
                         <div class="col-12 col-md-10">
+                        <option>Truck</option>
                             <select name="truck" id="select" class="form-control">
                                 {% for truck in trucks %}
                                     <option value="{{ truck.id }}">{{ truck.plat_number }}</option>
@@ -150,9 +154,9 @@
                 <button type="submit" class="btn btn-primary btn-sm">
                     <i class="fa fa-dot-circle-o"></i> Submit
                 </button>
-                <button type="reset" class="btn btn-danger btn-sm">
+                <a href="{% url 'invoice-add' %}" type="reset" class="btn btn-danger btn-sm">
                     <i class="fa fa-ban"></i> Reset
-                </button>
+                </a>
             </div>
                 </form>
             </div>

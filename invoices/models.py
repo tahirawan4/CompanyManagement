@@ -24,4 +24,4 @@ class Invoice(BaseModel):
     place_of_deliver = models.CharField(max_length=100)
 
     def __str__(self):
-        return str(self.id)
+        return "{}-{}".format(self.id, self.created_at.strftime('%Y'))

@@ -1,7 +1,9 @@
+from datetime import datetime
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
-from django.urls import reverse
-from django.views.generic import ListView, CreateView, TemplateView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import ListView, CreateView, TemplateView, DeleteView
 
 from core.forms import SupplierForm, BuyerForm, TruckForm, TruckDriverForm
 from core.models import Supplier, Buyer, TruckDriver, Truck
@@ -15,6 +17,18 @@ class InvoiceListView(ListView):
     paginate_by = 100
     context_object_name = 'invoices'
     template_name = 'invoices.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        selected_year = self.request.GET.get('year')
+        years_list = [str(datetime.now().date().year - i) for i in range(0, 10)]
+        context['years_list'] = years_list
+        context['selected_year'] = selected_year
+        if selected_year:
+            invoices_data = context['invoices']
+            context['invoices'] = Invoice.objects.filter(created_at__year=selected_year,
+                                                         id__in=invoices_data.values_list('id', flat=True))
+        return context
 
 
 class InvoiceCreateView(LoginRequiredMixin, TemplateView):
@@ -58,3 +72,8 @@ class InvoiceCreateView(LoginRequiredMixin, TemplateView):
 
         return redirect(reverse('invoices'))
 
+
+class InvoiceDeleteView(LoginRequiredMixin, DeleteView):
+    model = Invoice
+    template_name = 'confirm_delete.html'
+    success_url = reverse_lazy('invoices')
