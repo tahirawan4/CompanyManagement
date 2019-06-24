@@ -97,7 +97,7 @@ class TruckUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class TruckDeleteView(LoginRequiredMixin, DeleteView):
-    model = Truck
+    model = TruckDriver
     template_name = 'confirm_delete.html'
     success_url = reverse_lazy('trucks')
 
