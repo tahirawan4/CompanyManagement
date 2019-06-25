@@ -1,0 +1,174 @@
+<!doctype html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Invoice Print</title>
+
+    <style>
+        .invoice-box {
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #eee;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+            font-size: 16px;
+            line-height: 24px;
+            font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+            color: #555;
+        }
+
+        .invoice-box table {
+            width: 100%;
+            line-height: inherit;
+            text-align: left;
+        }
+
+        .invoice-box table td {
+            padding: 5px;
+            vertical-align: top;
+        }
+
+        .invoice-box table tr td:nth-child(2) {
+            text-align: right;
+        }
+
+        .invoice-box table tr.top table td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.top table td.title {
+            font-size: 45px;
+            line-height: 45px;
+            color: #333;
+        }
+
+        .invoice-box table tr.information table td {
+            padding-bottom: 40px;
+        }
+
+        .invoice-box table tr.heading td {
+            background: #eee;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+        }
+
+        .invoice-box table tr.details td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.item td {
+            border-bottom: 1px solid #eee;
+        }
+
+        .invoice-box table tr.item.last td {
+            border-bottom: none;
+        }
+
+        .invoice-box table tr.total td:nth-child(2) {
+            border-top: 2px solid #eee;
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .invoice-box table tr.top table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+
+            .invoice-box table tr.information table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+        }
+
+        /** RTL **/
+        .rtl {
+            direction: rtl;
+            font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        }
+
+        .rtl table {
+            text-align: right;
+        }
+
+        .rtl table tr td:nth-child(2) {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+<div class="invoice-box">
+    <table cellpadding="0" cellspacing="0">
+        <tr class="top">
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td class="title">
+                            <img src="{% static 'images/icon/my-logo1.png' %}" style="width:100%; max-width:300px;">
+                        </td>
+
+                        <td>
+                            Invoice #: {{ invoice.id }}-{{ invoice.created_at|date:'Y' }}<br>
+                            Created: {{ invoice.created_at|date }}<br>
+                            Due Date: {{ invoice.date_pick_up }}<br>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr class="information">
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td>
+                            {{ company.name }}<br>
+                            {{ company.address }}<br>
+                            {{ company.phone }}<br>
+                            {{ company.email }}<br>
+                            PIB:{{ company.PIB }}<br>
+                            MB:{{ company.MB }}<br>
+                        </td>
+
+                        <td>
+                            {{ invoice.supplier.company_name }}<br>
+                            {{ invoice.supplier.name }}<br>
+                            {{ invoice.supplier.email }}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr class="heading">
+            <td>Item</td>
+            <td style="text-align: center !important;">Packaging</td>
+            <td>Quantity</td>
+        </tr>
+        {% for item in invoice.order_items.all %}
+            <tr class="item">
+                <td>{{ item.item }}</td>
+                <td style="text-align: center !important;">{{ item.item_packaging }}</td>
+                <td>{{ item.quantity }}</td>
+            </tr>
+        {% endfor %}
+
+
+
+
+        <tr class="total">
+            <td></td>
+            <td style="text-align: right !important;">Total Items:</td>
+
+            <td>
+                 {{ invoice.total_items }}
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

@@ -3,8 +3,9 @@ from datetime import datetime
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
-from django.views.generic import ListView, CreateView, TemplateView, DeleteView, UpdateView
+from django.views.generic import ListView, CreateView, TemplateView, DeleteView, UpdateView, DetailView
 
+from company.models import Company
 from core.forms import SupplierForm, BuyerForm, TruckForm, TruckDriverForm
 from core.models import Supplier, Buyer, TruckDriver, Truck
 from invoices.forms import InvoiceForm, YearForm
@@ -151,3 +152,14 @@ class YearListView(ListView):
     paginate_by = 100
     context_object_name = 'years'
     template_name = 'years.html'
+
+
+class InvoicePrintView(LoginRequiredMixin, DetailView):
+    model = Invoice
+    context_object_name = 'invoice'
+    template_name = 'print_invoice.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['company'] = Company.objects.all().first()
+        return context
