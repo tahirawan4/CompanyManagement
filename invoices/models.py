@@ -25,3 +25,10 @@ class Invoice(BaseModel):
 
     def __str__(self):
         return "{}-{}".format(self.id, self.created_at.strftime('%Y'))
+
+
+class Year(models.Model):
+    year = models.CharField(max_length=4, unique=True)
+
+    def __str__(self):
+        return self.year

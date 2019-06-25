@@ -16,7 +16,6 @@
                                 <div class="col-4">
                                     <form method="get">
                                         <span>Select Year:</span>
-                                    {{ selected_year }}
                                         <select class="form-control" name="year" onchange="this.form.submit()">
                                             {% for year in years_list %}
                                                 <option value="{{ year }}"
@@ -57,10 +56,11 @@
                                             <td>{{ invoice.date_pick_up }}</td>
                                             <td>
                                                 <div class="table-data-feature">
-                                                    {#                                                    <button class="item" data-toggle="tooltip" data-placement="top"#}
-                                                    {#                                                            title="Edit">#}
-                                                    {#                                                        <i class="zmdi zmdi-edit"></i>#}
-                                                    {#                                                    </button>#}
+                                                    <a  href="{% url 'invoice-update' pk=invoice.pk %}" class="item" data-toggle="tooltip" data-placement="top"
+                                                            title="Edit">
+                                                        <i class="zmdi zmdi-edit"></i>
+                                                    </a>
+
                                                     <a href="{% url 'invoice-delete' pk=invoice.pk %}" class="item"
                                                        data-toggle="tooltip" data-placement="top"
                                                        title="Delete">

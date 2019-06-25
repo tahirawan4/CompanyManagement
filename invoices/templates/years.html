@@ -1,0 +1,40 @@
+{% extends 'common-lists.html' %}
+{% block entity-list %}
+    <a href="{% url 'year-add' %}" class="au-btn au-btn-icon au-btn--green au-btn--small"><i
+            class="zmdi zmdi-plus"></i>Add Year</a>
+    <br><br>
+    <div class="table-responsive table-responsive-data2">
+        <table class="table table-borderless table-data3">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Year</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for year in years %}
+                <tr class="tr-shadow">
+                    <td>{{ year.id }}</td>
+                    <td>{{ year.year }}</td>
+                    <td>
+                        <div class="table-data-feature">
+                            <a href="{% url 'year-update' pk=year.id %}" class="item" data-toggle="tooltip"
+                               data-placement="top"
+                               title="Edit">
+                                <i class="zmdi zmdi-edit"></i>
+                            </a>
+                            <a href="{% url 'year-delete' pk=year.id %}" class="item" data-toggle="tooltip"
+                               data-placement="top"
+                               title="Delete">
+                                <i class="zmdi zmdi-delete"></i>
+                            </a>
+
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
